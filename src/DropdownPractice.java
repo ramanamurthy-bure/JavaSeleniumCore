@@ -110,6 +110,7 @@ public class DropdownPractice {
 		}
 
 		WebElement elmTypeToSel = driver.findElement(By.xpath("//input[@id='autosuggest' and @placeholder='Type to Select']"));
+		elmTypeToSel.clear();
 		elmTypeToSel.sendKeys("Ind");
 		WebElement elmInd = driver.findElement(By.xpath("//a[text()='India']"));
 		elmInd.click();
@@ -127,16 +128,16 @@ public class DropdownPractice {
 		
 		System.out.println(sb);
 		
+		//Taking page screenshot
+		File src1=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);				
+		File dst1=new File("./Screenshots/Page.png");
+		FileUtils.copyFile(src1, dst1);
+		
 		//Taking screenshot for a WebElement		
 		WebElement elmImg=driver.findElement(By.cssSelector("div.slider__item a img"));		
 		File fs=elmImg.getScreenshotAs(OutputType.FILE);
 		File dstSave=new File("./Screenshots/WebElement.png");
 		FileUtils.copyFile(fs, dstSave);
-		
-		//Taking page screenshot
-		File src1=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);				
-		File dst1=new File("./Screenshots/Page.png");
-		FileUtils.copyFile(src1, dst1);
 		
 		if (strBrowserName.equalsIgnoreCase("Firefox")) {
 			// Taking full page screenshot - Option available in only Firefox Driver
