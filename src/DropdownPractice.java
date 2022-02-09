@@ -143,6 +143,10 @@ public class DropdownPractice {
 			File src2 = ((FirefoxDriver) driver).getFullPageScreenshotAs(OutputType.FILE);
 			File dst2 = new File("./Screenshots/FullPage.png");
 			FileUtils.copyFile(src2, dst2);
+		}else if(strBrowserName.equalsIgnoreCase("Chrome")) {
+			
+		}else if(strBrowserName.equalsIgnoreCase("Edge")) {
+			
 		}
 		
 		driver.quit();
